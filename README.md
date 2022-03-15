@@ -13,9 +13,9 @@ Repository name: The-Social-Network
 * [Questions](#questions)
 
 ## Installation 
-```npm i ``` on json files 
+```npm i ``` on json files. 
 ## Usage
-Routes for our social network
+Routes for our social network.
 ## Licensing
 2023 Mikayla B
 Copyright Permission is hereby granted, free of charge, 
@@ -41,11 +41,8 @@ None
 ## Questions
 Please reach out if you have any questions about this application:
 GitHub profile: https://github.com/MikiWolfe
-Please contact: N/A with any questions. 
 
 ### Link to Deployed Site
-Link to the deployed site: None
 Link to the repo: https://github.com/MikiWolfe/The-Social-Network
 
-### Image of application
-Link to a screenshot of the application: None
+
