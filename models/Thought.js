@@ -1,21 +1,62 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema
-
-const reactionSchema =  new mongoose.Schema({
-thoughts : [
-    {
-        type: Schema.Types.ObjectId,
-        ref: 'Thought'
-    }
-]
-})
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const thoughtSchema = new mongoose.Schema({
-    reactions : [ reactionSchema ]
-})
+  thoughts: {
+    type: String,
+    required: true,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
 
-const Thought = mongoose.model('Thought' , thoughtSchema);
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  }
+},
+{
+  toJSON: {
+    virtuals: true,
+    getters: true
+  },
+  
+}
+);
 
-const handleError = (err) => console.error(err)
+const reactionSchema = new mongoose.Schema(
+  {
+    reactionId: {
+      type: Schema.Type.ObjectsId,
+      default: new Type(),
+    },
+    reactionBody: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    toJSON: {
+      getters: true,
+    },
+    id: false
+  },
 
-module.exports = Thought
+);
+
+const Thought = mongoose.model("Thought", thoughtSchema);
+
+thoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
+module.exports = Thought;
