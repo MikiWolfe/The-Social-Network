@@ -30,8 +30,8 @@ const thoughtSchema = new mongoose.Schema({
 const reactionSchema = new mongoose.Schema(
   {
     reactionId: {
-      type: Schema.Type.ObjectsId,
-      default: new Type(),
+      type: Schema.Types.ObjectId,
+      default: () => new Types.ObjectId(),
     },
     reactionBody: {
       type: String,
