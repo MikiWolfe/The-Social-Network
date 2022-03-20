@@ -1,4 +1,4 @@
-const { Thought } = require("../models");
+const { User, Thought } = require("../models");
 
 
 

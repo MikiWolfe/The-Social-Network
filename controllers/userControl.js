@@ -4,7 +4,7 @@ module.exports = {
   // GET all users
   getAllUsers(req, res) {
     User.findAll({})
-      .then((dbUserData) => res.json(dbUserData))
+      .then((dbUserData) => res.status(200).json(dbUserData))
       .catch((err) => res.status(400).json(err));
   },
   // GET single user by ID
@@ -23,7 +23,7 @@ module.exports = {
   // CREATE new user
   createUser(req, res) {
     User.create(req.body)
-      .then((dbUserData) => res.json(dbUserData))
+      .then((dbUserData) => res.status(200).json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
 
@@ -31,13 +31,13 @@ module.exports = {
   updateUser(req, res) {
     User.where({ _id: req.params.userId })
       .updateOne(req.body)
-      .then((dbUserData) => res.json(dbUserData))
+      .then((dbUserData) => res.status(200).json(dbUserData))
       .catch((err) => res.status(500).json(err));
   },
   // DELETE user & all of their thoughts
   deleteUser(req, res) {
     User.deleteOne({ _id: req.params.userId })
-      .then((dbUserData) => res.json(dbUserData))
+      .then((dbUserData) => res.status(200).json(dbUserData))
       .then((dbUserData) => {
         !dbUserData
           ? res
