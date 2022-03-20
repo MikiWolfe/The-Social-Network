@@ -5,6 +5,8 @@ const thoughtSchema = new mongoose.Schema({
   thoughts: {
     type: String,
     required: true,
+    minlength: 1,
+    maxlength: 280
   },
   username: {
     type: String,
@@ -34,7 +36,7 @@ const reactionSchema = new mongoose.Schema(
     reactionBody: {
       type: String,
       required: true,
-      trim: true,
+      maxlength: 280
     },
     username: {
       type: String,
