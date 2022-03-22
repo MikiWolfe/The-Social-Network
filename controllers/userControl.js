@@ -17,7 +17,7 @@ module.exports = {
       .populate("friends")
       .then((dbUserData) =>
         !dbUserData
-          ? res.status(404).json({ message: "That user does not exsist." })
+          ? res.status(404).json({ message: "That user does not exsist. At least in this database" })
           : res.status(200).json(dbUserData)
       )
       .catch((err) => res.status(500).json(err));

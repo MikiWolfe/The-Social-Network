@@ -5,9 +5,7 @@ const friendRoutes = require("./freindRoutes");
 const thoughtRoutes = require("./thoughtRoutes");
 const reactionRoutes = require("./reactionRoutes");
 
-router.use("/users", userRoutes);
-router.use("/friends", friendRoutes);
-router.use("/thougts", thoughtRoutes);
-router.use("/reactions", reactionRoutes);
+router.use("/users", userRoutes, friendRoutes);
+router.use("/thoughts", thoughtRoutes, reactionRoutes);
 
 module.exports = router;
