@@ -4,7 +4,7 @@ module.exports = {
     
   // GET all thoughts
   getThoughts(req, res) {
-    Thought.find({})
+    Thought.find()
       .then((dbThoughtData) => res.json(dbThoughtData))
       .catch((err) => res.status(500).json(err));
   },

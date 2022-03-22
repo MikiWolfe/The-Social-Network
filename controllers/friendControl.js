@@ -7,12 +7,12 @@ module.exports = {
     User.findOneAndUpdate(
       { _id: req.params.userId },
       { $addToSet: { friends: req.params.friendId } },
-      { new: true }
+      { new: true, runValidators: true}
     )
-      .then((user) =>
-        !user
+      .then((friend) =>
+        !friend
           ? res.status(404).json({ message: "No friends found with this ID" })
-          : res.status(200).json(user)
+          : res.status(200).json(friend)
       )
       .catch((err) => res.status(500).json(err));
   },
@@ -22,12 +22,12 @@ module.exports = {
     User.findOneAndDelete(
       { _id: req.params.userId },
       { $pull: { friends: req.params.friendId } },
-      { new: true }
+      { new: true, runValidators: true }
     )
-      .then((user) =>
-        !user
+      .then((friend) =>
+        !friend
           ? res.status(404).json({ message: "No friends found with this ID" })
-          : res.status(200).json(user)
+          : res.status(200).json(friend)
       )
       .catch((err) => res.status(500).json(err));
   },
